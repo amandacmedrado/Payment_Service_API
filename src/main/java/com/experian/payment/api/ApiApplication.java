@@ -1,4 +1,4 @@
-package com.experian.payment.api.domain;
+package com.experian.payment.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
