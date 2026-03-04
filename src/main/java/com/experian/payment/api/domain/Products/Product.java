@@ -1,4 +1,4 @@
-package com.experian.payment.api.domain.Produts;
+package com.experian.payment.api.domain.Products;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
@@ -57,8 +57,6 @@ public class Product {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-    // equals e hashCode (boa prática para entidades)
 
     @Override
     public boolean equals(Object o) {

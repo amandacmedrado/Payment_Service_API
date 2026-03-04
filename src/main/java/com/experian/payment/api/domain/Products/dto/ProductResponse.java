@@ -1,7 +1,6 @@
-package com.experian.payment.api.domain.Produts.dto;
+package com.experian.payment.api.domain.Products.dto;
 
-import com.experian.payment.api.domain.Payments.dto.PaymentRequest;
-import com.experian.payment.api.domain.Produts.Product;
+import com.experian.payment.api.domain.Products.Product;
 
 import java.math.BigDecimal;
 

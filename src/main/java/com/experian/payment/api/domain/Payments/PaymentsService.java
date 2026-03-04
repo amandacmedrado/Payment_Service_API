@@ -2,8 +2,8 @@ package com.experian.payment.api.domain.Payments;
 
 import com.experian.payment.api.domain.Payments.dto.PaymentRequest;
 import com.experian.payment.api.domain.Payments.dto.PaymentResponse;
-import com.experian.payment.api.domain.Produts.Product;
-import com.experian.payment.api.domain.Produts.ProductRepository;
+import com.experian.payment.api.domain.Products.Product;
+import com.experian.payment.api.domain.Products.ProductRepository;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
