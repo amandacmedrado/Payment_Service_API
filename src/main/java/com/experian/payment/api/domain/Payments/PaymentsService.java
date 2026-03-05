@@ -7,6 +7,7 @@ import com.experian.payment.api.domain.Products.ProductRepository;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.math.RoundingMode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -47,24 +48,34 @@ public class PaymentsService {
         }
 
         for (Product product : products) {
-            if (productsIdQuantity.containsKey(product.getUuid())) {
-                var quantity = productsIdQuantity.get(product.getUuid());
-                originalAmount = originalAmount.add(product.getPrice().multiply(BigDecimal.valueOf(quantity)));
+            if (productsIdQuantity.containsKey(product.getId())) {
+                var quantity = productsIdQuantity.get(product.getId());
+                originalAmount = originalAmount.add(
+                        product.getPrice().multiply(BigDecimal.valueOf(quantity))
+                );
             }
         }
 
         if (methodType.equals(PaymentRequest.PaymentMethodType.PIX.toString())){
-            appliedDiscount = originalAmount.multiply(BigDecimal.valueOf(0.05));
-            finalAmount = originalAmount.subtract(appliedDiscount);
+            appliedDiscount = originalAmount
+                    .multiply(BigDecimal.valueOf(0.05))
+                    .setScale(2, RoundingMode.HALF_EVEN);
+
+            finalAmount = originalAmount
+                    .subtract(appliedDiscount)
+                    .setScale(2, RoundingMode.HALF_EVEN);
         }
 
         if (methodType.equals(PaymentRequest.PaymentMethodType.CREDIT_CARD.toString())){
-            finalAmount = originalAmount;
-            cashbackAmount = originalAmount.multiply(BigDecimal.valueOf(0.03));
+            finalAmount = originalAmount.setScale(2, RoundingMode.HALF_EVEN);
+
+            cashbackAmount = originalAmount
+                    .multiply(BigDecimal.valueOf(0.03))
+                    .setScale(2, RoundingMode.HALF_EVEN);
         }
 
         if (methodType.equals(PaymentRequest.PaymentMethodType.DEBIT_CARD.toString())){
-            finalAmount = originalAmount;
+            finalAmount = originalAmount.setScale(2, RoundingMode.HALF_EVEN);
         }
 
         var payment = new Payment(uuidPayment, originalAmount, finalAmount, cashbackAmount, appliedDiscount, methodType, status);
