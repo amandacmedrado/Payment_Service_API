@@ -1,0 +1,127 @@
+{
+  "info": {
+    "_postman_id": "47e2d7f6-65af-4541-8744-051c9228d8d2",
+    "name": "Crontroller produtos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47863256",
+    "_collection_link": "https://go.postman.co/collection/47863256-47e2d7f6-65af-4541-8744-051c9228d8d2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Listar produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Criar produtos",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Teclado Mecânico\",\r\n  \"price\": 499.90\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar produtos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/efe1bf70-3972-44b3-872e-e100bbb44dfd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "efe1bf70-3972-44b3-872e-e100bbb44dfd"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar produtos",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Produto Atualizado\",\r\n  \"price\": 799.90\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/products/efe1bf70-3972-44b3-872e-e100bbb44dfd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "efe1bf70-3972-44b3-872e-e100bbb44dfd"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deletar produtos",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/efe1bf70-3972-44b3-872e-e100bbb44dfd",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "efe1bf70-3972-44b3-872e-e100bbb44dfd"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

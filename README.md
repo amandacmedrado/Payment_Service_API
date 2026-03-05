@@ -1,49 +1,91 @@
-## 💻 Sobre o projeto
+💳 Payment Service API
 
-Voll.med é uma clínica médica fictícia que precisa de um aplicativo para gestão de consultas. O aplicativo deve possuir funcionalidades que permitam o cadastro de médicos e de pacientes, e também o agendamento e cancelamento de consultas.
+API REST desenvolvida com Java 17 + Spring Boot 3 para gerenciamento de produtos e processamento de pagamentos com regras de negócio específicas por método de pagamento.
 
-Enquanto um time de desenvolvimento será responsável pelo aplicativo mobile, o nosso será responsável pelo desenvolvimento da API Rest desse projeto.
+🚀 Tecnologias Utilizadas
 
----
+Java 17
 
-## ⚙️ Funcionalidades
+Spring Boot 3
 
-- [x] CRUD de médicos;
-- [x] CRUD de pacientes;
-- [x] Agendamento de consultas.
+Maven
 
----
+MySQL
 
-## 🎨 Layout
+Spring Data JPA
 
-O layout da aplicação mobile está disponível neste link: <a href="https://www.figma.com/file/N4CgpJqsg7gjbKuDmra3EV/Voll.med">Figma</a>
+Hibernate
 
----
+Jakarta Validation
 
-## 📄 Documentação
+Apache Kafka (em fase de integração)
 
-A documentação das funcionalidades da aplicação pode ser acessada neste link: <a href="https://trello.com/b/O0lGCsKb/api-voll-med">Trello</a>
+JUnit 5 (para testes unitários)
 
----
+Mockito (para testes e mocks de dependências)
 
-## 🛠 Tecnologias
+Postman
 
-As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do projeto:
+📌 Funcionalidades
+🛍️ CRUD de Produtos
 
-- **[Java 17](https://www.oracle.com/java)**
-- **[Spring Boot 3](https://spring.io/projects/spring-boot)**
-- **[Maven](https://maven.apache.org)**
-- **[MySQL](https://www.mysql.com)**
-- **[Hibernate](https://hibernate.org)**
-- **[Flyway](https://flywaydb.org)**
-- **[Lombok](https://projectlombok.org)**
+Criar produto
 
----
+Listar produtos (com paginação)
 
-## 📝 Licença
+Buscar produto por UUID
 
-Projeto desenvolvido por [Alura](https://www.alura.com.br) e utilizado nos cursos de Spring Boot.
+Atualizar produto
 
-Instrutor: [Rodrigo Ferreira](https://cursos.alura.com.br/user/rodrigo-ferreira) 
+Remover produto
 
----
+💳 Processamento de Pagamentos
+
+A API aplica regras de negócio conforme o método de pagamento:
+
+PIX
+
+Aplica 5% de desconto sobre o valor total.
+
+CREDIT_CARD
+
+Concede 3% de cashback.
+
+Valor final permanece o original.
+
+DEBIT_CARD
+
+Sem regras especiais.
+
+🧠 Regras de Negócio
+
+O valor total é calculado com base no preço do produto × quantidade.
+
+UUID é utilizado como identificador público dos pagamentos.
+
+Validação para impedir processamento quando não houver produtos cadastrados.
+
+Cálculos realizados utilizando BigDecimal para evitar problemas de precisão.
+
+Estrutura preparada para futura integração com mensageria (Kafka).
+
+🧪 Testes (em implementação)
+
+O projeto contará com:
+
+Testes unitários utilizando JUnit 5
+
+Mocks de dependências com Mockito
+
+Cobertura de regras de negócio no PaymentsService
+
+📫 Postman Collection
+
+A collection com todos os endpoints está disponível na pasta postman/
+
+👩🏻‍💻 Autora
+
+Amanda Carolina
+Desenvolvedora Backend Java
+
+----

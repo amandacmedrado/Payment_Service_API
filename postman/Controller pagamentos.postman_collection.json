@@ -1,0 +1,67 @@
+{
+  "info": {
+    "_postman_id": "6a067e94-a46e-4fa6-8358-fdbad5180499",
+    "name": "Controller pagamentos",
+    "description": "HAR To Postman Generated Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47863256",
+    "_collection_link": "https://go.postman.co/collection/47863256-6a067e94-a46e-4fa6-8358-fdbad5180499?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Cadastrar pagamento",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"products\": [\n        {\n            \"productId\": 3,\n            \"uuid\": \"550e8400-e29b-41d4-a716-446655440003\",\n            \"quantity\": 2\n        },\n        {\n            \"productId\": 1,\n            \"uuid\": \"550e8400-e29b-41d4-a716-446655440001\",\n            \"quantity\": 5\n        }\n    ],\n    \"paymentMethodType\": \"DEBIT_CARD\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/payments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "payments"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:8080",
+      "type": "any"
+    }
+  ]
+}
