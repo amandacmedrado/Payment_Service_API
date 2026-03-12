@@ -21,6 +21,10 @@ public class Product {
     @Column(name = "price", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Product() {
     }
 
